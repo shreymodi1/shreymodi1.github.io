@@ -1,0 +1,83 @@
+/* This is the main stylesheet for the site. */
+
+/* Desktop */
+header {
+  padding-right: 20%;
+}
+
+main {
+  line-height: 1.6;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo,
+    Palatino, monospace;
+  font-size: 90%;
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+}
+
+body.dark-theme {
+  background-color: #000;
+  color: #fff;
+}
+
+body.dark-theme a:link,
+body.dark-theme a:visited {
+  color: #00ffff;
+}
+
+body.dark-theme a:hover,
+body.dark-theme a:active {
+  color: #00ff00;
+}
+
+footer {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 90%;
+  align-items: center;
+}
+
+a:link {
+  color: #ff00ff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  /* color: #0366d6; */
+  color: #259878;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  /* color: #0366d6; */
+  color: #ff00ff;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  /* Mobile */
+  main {
+    width: 100%;
+  }
+
+  body {
+    width: 60%;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}

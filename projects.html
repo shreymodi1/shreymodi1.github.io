@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Anirudh&#39;s website" />
+
+    <link rel="shortcut icon" href="images/image.png" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="https://advaitiyer.com/index.xml"
+      title="Advait Iyer"
+    /> -->
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Projects | Anirudh Ramprasad</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XH39YF3VRE"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XH39YF3VRE");
+    </script>
+  </head>
+
+  <body>
+    <header id="banner">
+      <h2><a href="index.html">Anirudh Ramprasad</a> | Projects</h2>
+    </header>
+    <main id="content">
+      <p>
+        Here are some things I've worked on (not counting school projects which
+        you can find by just looking up
+        <a>"University of Michigan, {class_name}, {project_name}"</a> )
+      </p>
+      <!-- <h4><i>Verilog/SystemVerilog</i></h4> -->
+      <div class="experience">
+        <h3>
+          <b><a href="https://aeglos.ai/">Aeglos</a></b>
+        </h3>
+        <p>
+          Built the "firewall" for language models to prevent all sorts of bad
+          stuff from happening. Fine tuned llama 2 on a self curated dataset,
+          getting better results than competitors at the time.
+        </p>
+
+        <p>
+          Released
+          <a href="https://docs.aeglos.ai/introduction">python library</a> to
+          easily integrate with langchain. Built out a
+          <a href="https://hobbit-heist.aeglos.ai/">web game</a> with ~30k DAU
+          at the time to collect training data (try it out).
+        </p>
+
+        <p>
+          Had a blast building this out with
+          <a href="https://www.linkedin.com/in/alexandru-beloiu/">Alex</a>
+        </p>
+      </div>
+
+      <div class="experience">
+        <h3>
+          <b><a href="https://pedaguide.framer.website/">Pedaguide</a></b>
+        </h3>
+        <p>
+          Built out the beginnings of a "knowledge agent", to act as a personal
+          tutoring assistant. Did some cool things to allow language models to
+          understand math better (largely based off of
+          <a href="https://arxiv.org/pdf/2312.07622">this</a>).
+        </p>
+        <p>
+          Got ~500 students using it at some point, but shut it down due to me
+          and my friends having other obligations. Had a blast with
+          <a href="https://www.linkedin.com/in/rspapani/">Rishi</a>, and
+          <a href="https://www.linkedin.com/in/aditya-uchil/">Uchill</a>
+        </p>
+        <p>Got (hopefully) better at naming things after this</p>
+      </div>
+
+      <div class="experience">
+        <h3>
+          <b><a href="https://ututors.webflow.io/">Ututors</a></b>
+        </h3>
+        <p>
+          Web marketplace connecting tutors with students. Signed up ~5k users
+          on waitlist before pausing (and later abandoning) project as a result
+          of personal reasons from a member of our team's side.
+        </p>
+        <p>
+          Raised a little bit of money and made some lifelong
+          <a href="https://www.linkedin.com/in/cooper-kennelly/">friends</a>
+        </p>
+      </div>
+
+      <!-- <div class="experience">
+        <h3><b>Course Autograder for FPGA design verification, EECS 270</b></h3>
+        <p>
+          - Co-developed testing frameworks in <b>Verilog</b>, set up
+          <b>Docker</b> environment, and wrote testbenches to verify student
+          designs.
+        </p>
+        <p>- Deployed on autograder.io.</p>
+      </div>
+
+      <div class="experience">
+        <h3><b>FPGA Design Projects</b></h3>
+        <p>
+          - Designed a four function calculator, traffic lights controller and
+          carry lookahead adder.
+        </p>
+        <p>- Deployed and verified on <b>Altera DE2-115</b> boards.</p>
+      </div>
+
+      <div class="experience">
+        <h3><b>Robotic Planning and Controls Projects</b></h3>
+        <p>
+          - iLQR implementation in <b>Pytorch</b> for the inverted
+          double-pendulum on a cart.
+        </p>
+        <p>- MPC and MPPI for linearizing cartpole and robot arm dynamics.</p>
+        <p>- Dynamics from state measurements, with Gaussian processes.</p>
+      </div> -->
+
+      <div class="experience">
+        <h2><b>Some other things I have done are ...</b></h2>
+        <p>
+          <a href="https://github.com/anirudhramoo/Optifocal-Web">Optifocal</a>
+          - CV app to gauge driver attentiveness (public web demo)
+        </p>
+
+        <p>
+          <a href="https://github.com/anirudhramoo/LLM-CTF">LLM-CTF</a>
+          - A simple CTF I built for fun. Follow the instructions in the readme
+          and try it out.
+        </p>
+        <p>
+          <a href="https://github.com/anirudhramoo/applyJobs"
+            >Auto Apply to jobs</a
+          >
+          - A tool that leverages the MultiOn API to automatically apply to
+          jobs. Got me a job there
+        </p>
+
+        <p>
+          <a href="https://github.com/anirudhramoo/applyJobs">Scheduler</a>
+          - A
+          <a href="https://scheduler-plum-psi.vercel.app/">voice assistant</a>
+          you can talk to to manage your calender. Used heuristics + COT to move
+          events around to fit a user's schedule. Got ~200 people on waitlist at
+          treeHacks (didn't win :( ).
+        </p>
+
+        <p>
+          <a href="https://eye-alarm.netlify.app/">Eye Alarm</a>
+          - A webapp alarm clock that tracks your face and plays EDM music when
+          you fall asleep. Helped me a lot with school
+        </p>
+        <p></p>
+        <!-- 
+        <p>- Pipeline and cache simulators in C</p>
+        <p>- Tarjan's pairing heap</p>
+        <p>- SQL-like relational database</p>
+        <p>- Among Us simulator with optimal TSP</p>
+        <p>- Seam-carving for image resizing</p>
+        <p>- Piazza posts classifier</p>
+        <p>- Plants vs Zombies simulator</p>
+        <p>- Euchre simulator</p> -->
+      </div>
+    </main>
+    <footer id="footer">
+      <p>
+        <!-- <a href="writing.html">Writing</a> • -->
+        <a href="projects.html">Projects</a> •
+        <!-- <a href="quotes.html">Quotes</a> •  -->
+        <a href="work.html">Experience</a> •
+        <!-- <a href="https://wiki.advaitiyer.com">Wiki</a> •
+        <a href="https://twitter.com/advaitsi">Twitter</a> • -->
+        <a href="https://github.com/anirudhramoo">Github</a> •
+        <a href="https://www.linkedin.com/in/anirudh-ramprasad-7aa7b8215/"
+          >LinkedIn</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
