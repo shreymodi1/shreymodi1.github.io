@@ -1,83 +1,152 @@
-/* This is the main stylesheet for the site. */
-
-/* Desktop */
-header {
-  padding-right: 20%;
-}
-
-main {
-  line-height: 1.6;
-}
-
+/* Base Styles */
 body {
   background-color: #ffffff;
-  color: #000000;
-  font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo,
-    Palatino, monospace;
-  font-size: 90%;
-  margin-top: 5%;
-  margin-left: 30%;
-  margin-right: 30%;
-  width: 40%;
+  color: #333333;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
 }
 
 body.dark-theme {
-  background-color: #000;
-  color: #fff;
+  background-color: #111;
+  color: #e0e0e0;
 }
 
-body.dark-theme a:link,
-body.dark-theme a:visited {
-  color: #00ffff;
+/* Header and Footer */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f7f7;
 }
 
-body.dark-theme a:hover,
-body.dark-theme a:active {
-  color: #00ff00;
+body.dark-theme header {
+  background-color: #222;
 }
 
 footer {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  font-size: 90%;
-  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  color: #777777;
 }
 
-a:link {
-  color: #ff00ff;
-  background-color: transparent;
-  text-decoration: none;
+body.dark-theme footer {
+  background-color: #222;
+  color: #bbb;
 }
 
-a:link,
-a:visited {
-  /* color: #0366d6; */
-  color: #259878;
-  background-color: transparent;
-  text-decoration: none;
+/* Content Sections */
+.project, .work-experience, .research-paper {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+body.dark-theme .project, 
+body.dark-theme .work-experience, 
+body.dark-theme .research-paper {
+  background: #222;
+  border: 1px solid #444;
+}
+
+/* Dark Mode Toggle Button */
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+}
+
+/* Engagement Bar Styling */
+#engagement-prediction {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#engagement-bar-container {
+  width: 80%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+#engagement-bar {
+  height: 100%;
+  width: 0;
+  background-color: #FFD700; /* Yellow color for engagement level */
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+#engagement-result {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FFD700;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Profile Photo */
+.profile-photo {
+  width: 120px; /* Adjust width as needed */
+  height: auto; /* Keeps the aspect ratio */
+  border-radius: 50%; /* Optional: Makes it circular */
+  display: block;
+  margin: 20px auto; /* Centers the image */
+}
+
+#engagement-prediction {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 120px; /* Smaller width for compact display */
+  text-align: left;
+  z-index: 10; /* Ensure it stays on top of other elements */
+  background-color: rgba(0, 0, 0, 0.6); /* Subtle semi-transparent background */
+  padding: 5px;
+  border-radius: 5px;
+  color: #FFD700; /* Yellow text color for readability */
+  font-size: 0.85em; /* Small font size for compact look */
+}
+
+#engagement-bar-container {
+  width: 100%; /* Fit within the smaller container */
+  height: 6px; /* Reduce height for a smaller bar */
+  background-color: #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+#engagement-bar {
+  height: 100%;
+  width: 0;
+  background-color: #FFD700; /* Yellow color for engagement level */
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+#engagement-result {
+  font-size: 0.8em; /* Smaller font to match compact design */
+  font-weight: bold;
+  opacity: 1; /* Ensure it is always visible */
+  margin: 0;
+}
+
+/* Set link color to yellow */
+a {
+  color: #FFD700; /* Yellow color */
+  text-decoration: none; /* Optional: removes underline */
 }
 
 a:hover {
-  /* color: #0366d6; */
-  color: #ff00ff;
-  background-color: transparent;
-  text-decoration: underline;
+  color: #FFC300; /* Slightly different shade of yellow on hover */
 }
 
-li:not(:last-child) {
-  margin-bottom: 15px;
-}
-
-@media (max-width: 600px) {
-  /* Mobile */
-  main {
-    width: 100%;
-  }
-
-  body {
-    width: 60%;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-  }
-}

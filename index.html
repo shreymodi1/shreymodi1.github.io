@@ -3,183 +3,269 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anirudh&#39;s website" />
-
-    <link rel="shortcut icon" href="images/image.png" />
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <!-- <link
-      rel="alternate"
-      type="application/rss+xml"
-      href="https://advaitiyer.com/index.xml"
-      title="Anirudh Ramprasad"
-    /> -->
-
+    <meta name="description" content="Shrey Modi's Portfolio" />
     <link rel="stylesheet" href="style.css" />
-    <title>Anirudh Ramprasad</title>
-
-    <link rel="prefetch" href="writing.html" />
-    <link rel="prefetch" href="work.html" />
-    <link rel="prefetch" href="projects.html" />
-    <link rel="prefetch" href="quotes.html" />
-
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XH39YF3VRE"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+    <title>Shrey Modi</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <style>
+      /* Inline CSS for light and dark themes */
+      body {
+        background-color: #ffffff;
+        color: #000000;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
-      gtag("js", new Date());
-
-      gtag("config", "G-XH39YF3VRE");
-    </script>
-
-    <script>
-      !(function (t, e) {
-        var o, n, p, r;
-        e.__SV ||
-          ((window.posthog = e),
-          (e._i = []),
-          (e.init = function (i, s, a) {
-            function g(t, e) {
-              var o = e.split(".");
-              2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                (t[e] = function () {
-                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-                });
-            }
-            ((p = t.createElement("script")).type = "text/javascript"),
-              (p.async = !0),
-              (p.src =
-                s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
-                "/static/array.js"),
-              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
-                p,
-                r
-              );
-            var u = e;
-            for (
-              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                u.people = u.people || [],
-                u.toString = function (t) {
-                  var e = "posthog";
-                  return (
-                    "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
-                  );
-                },
-                u.people.toString = function () {
-                  return u.toString(1) + ".people (stub)";
-                },
-                o =
-                  "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(
-                    " "
-                  ),
-                n = 0;
-              n < o.length;
-              n++
-            )
-              g(u, o[n]);
-            e._i.push([i, s, a]);
-          }),
-          (e.__SV = 1));
-      })(document, window.posthog || []);
-      posthog.init("phc_EQHRBQAWc33vKTmGaLME7SzJgGvUSUZoTLYB8QQtn2o", {
-        api_host: "https://us.i.posthog.com",
-        person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-      });
-    </script>
+      .dark-theme {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+      }
+      #particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .dark-theme #particles {
+        filter: brightness(1.5);
+      }
+      #banner, #footer {
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="dark-theme">
+    <canvas id="particles"></canvas>
+
     <header id="banner">
-      <h2><a href="index.html">Anirudh Ramprasad</a></h2>
+      <h1><a href="index.html">Shrey Modi</a></h1>
+      <button id="theme-toggle" onclick="toggleTheme()">🌗 Light Mode</button>
+      <p class="tagline" id="tagline">Engineer, ML Researcher, Fitness Enthusiast</p>
+      <p id="greeting-message" class="greeting"></p>
     </header>
+
     <main id="content">
-      <!-- <p>
-        I study computers at the University of Michigan. Here, I also teach
-        <a
-          href="https://ece.engin.umich.edu/academics/course-information/course-descriptions/eecs-270/"
-          >logic design</a
-        >
-        and play
-        <a href="https://www.instagram.com/michiganclubsquash/" target="_blank"
-          >squash</a
-        >.
-      </p>
-      <p>
-        I've <a href="/work.html">worked</a> at a few interesting places, and
-        currently help early-stage founders with
-        <a href="https://contrary.com"> Contrary</a>.
-      </p>
-      <p>
-        These days C++, Verilog, and Python are the languages I use the most.
-        Nevertheless, the only syntactically correct writing I produce continues
-        to be in English. Some of it can be found
-        <a href="/writing.html" target="_blank">here</a>.
-      </p>
-      <p>Here's a parting <a href="/spotify.html" target="_blank">gift</a>.</p> -->
+      <section id="about">
+        <h2>Hey, I'm Shrey!</h2>
+        <img src="images/DSC_0024.jpeg" alt="Shrey Modi's Photo" class="profile-photo" />
+        <p>
+          I graduated with a degree in Computer Science from IIT Bombay. I am currently pursuing a Master’s in Computer Science at the University of Chicago. When it comes to startups, I’m all in—especially the early-stage ones. I am currently looking to join a tech-startup! My obsession with them kicked off during my time interning at a young startup and a VC firm, where I got a taste of the chaotic excitement of building something from scratch.
+          I have a strong background in ML <a href="research.html">research</a>. I love to keep up to date with the latest ML research and funding rounds in Silicon Valley!<br><br>
+          Beyond tech, I’m a bit of a fitness and music buff. I’m all about long-distance runs, lifting weights (gotta stay strong for all that startup hustle), and rocking out to some good old rock and rap. If you’re looking to talk shop, startups, or need a running partner, I'm your person!
+        </p>
+      </section>
 
-      <p>
-        I currently live in Chicago and am living my dream life, working
-        full time on a
-        <a href="https://andoria.ai/" target="_blank">project</a> I am
-        passionate about with a close
-        <a href="https://www.linkedin.com/in/dbudiman/" target="_blank"
-          >friend</a
-        >.
-      </p>
+      <!-- Explore More Links Section -->
+      <section id="explore-more">
+        <h2>Explore More</h2>
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="work.html">Experience</a></li>
+          <li><a href="research.html">Research</a></li>
+        </ul>
+      </section>
 
-      <p>
-        I love startups and have <a href="work.html">worked</a> at a few
-        interesting places. When I'm not working, I spend the brunt of my time
-        <a href="projects.html">hacking</a>
-        on projects with friends, and keeping up with ML research.
-      </p>
+      <!-- Socials Section -->
+      <section id="socials">
+        <h2>Connect with Me</h2>
+        <ul>
+          <li><a href="https://github.com/shreymodi13" class="social-link" onmouseover="hoverSocial('GitHub')" onmouseout="resetHover()">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/shrey-modi-b059941bb/" class="social-link" onmouseover="hoverSocial('LinkedIn')" onmouseout="resetHover()">LinkedIn</a></li>
+        </ul>
+        <p id="hover-message" class="hover-message"></p>
+      </section>
 
-      <p>
-        When I'm away from my laptop, I also deeply enjoy lifting weights, and
-        listening to all forms of music, from
-        <a href="https://www.youtube.com/watch?v=1e9B31FLT-s" target="_blank"
-          >classical</a
-        >
-        and
-        <a href="https://www.youtube.com/watch?v=S8gfqs1-NuE" target="_blank"
-          >rap</a
-        >
-        to
-        <a href="https://www.youtube.com/watch?v=S9PIF2Acjhw" target="_blank"
-          >Donkey Kong Lofi</a
-        >.
-      </p>
+      <!-- Fun Facts Section -->
+      <section id="fun-facts">
+        <h2>More About Me</h2>
+        <button onclick="showRandomFact()">Show Me a Fun Fact!</button>
+        <p id="random-fact"></p>
+      </section>
 
-      <p>
-        s/o to my friend
-        <a href="https://advaitiyer.com/" target="_blank">Advait</a> for the
-        design of this website
-      </p>
+      <!-- Engagement Prediction Section -->
+      <section id="engagement-prediction">
+        <h2>Your Engagement Level</h2>
+        <div id="engagement-bar-container">
+          <div id="engagement-bar"></div>
+        </div>
+        <p id="engagement-result">Calculating...</p>
+      </section>
     </main>
+
     <footer id="footer">
-      <p>
-        <!-- <a href="writing.html">Writing</a> • -->
-        <a href="projects.html">Projects</a> •
-        <!-- <a href="quotes.html">Quotes</a> •  -->
-        <a href="work.html">Experience</a> •
-        <!-- <a href="https://wiki.advaitiyer.com">Wiki</a> • -->
-        <!-- <a href="https://twitter.com/advaitsi">Twitter</a> • -->
-        <a href="https://github.com/anirudhramoo">Github</a> •
-        <a href="https://www.linkedin.com/in/anirudh-ramprasad-7aa7b8215/"
-          >LinkedIn</a
-        >
-      </p>
+      <p>&copy; 2023 Shrey Modi</p>
     </footer>
 
-    <!-- Move the script here and add defer attribute -->
-    <script
-      defer
-      src="https://127.0.0.1:8000/chatbot.js?customerId=80d37a75-d5b8-4c25-b774-2f46705efbee"
-    ></script>
+    <script defer>
+      // Toggle theme function
+      function toggleTheme() {
+        document.body.classList.toggle("dark-theme");
+        const themeButton = document.getElementById("theme-toggle");
+        themeButton.textContent = document.body.classList.contains("dark-theme") ? "🌗 Light Mode" : "🌗 Dark Mode";
+      }
+
+      // Greeting based on time and mood
+      function displayGreeting() {
+        const hours = new Date().getHours();
+        let greeting;
+        if (hours < 12) {
+          greeting = "Good Morning! Ready to kickstart the day with some ML?";
+        } else if (hours < 18) {
+          greeting = "Good Afternoon! Mid-day break? Check out some projects!";
+        } else {
+          greeting = "Good Evening! Relaxing or diving into code tonight?";
+        }
+        document.getElementById("greeting-message").textContent = greeting;
+      }
+
+      // Fun social hover effect
+      function hoverSocial(platform) {
+        const hoverMessage = platform === "GitHub"
+          ? "Check out my latest code!"
+          : "Connect with me on LinkedIn!";
+        document.getElementById("hover-message").textContent = hoverMessage;
+      }
+
+      function resetHover() {
+        document.getElementById("hover-message").textContent = "";
+      }
+
+      // Fun facts generator
+      function showRandomFact() {
+        const facts = [
+          "📖 Always keeping up with the latest ML research and tech innovations.",
+          "💪 Running, lifting, and fitness are big parts of my routine.",
+          "🎶 Rock and rap fan through and through."
+        ];
+        document.getElementById("random-fact").textContent =
+          facts[Math.floor(Math.random() * facts.length)];
+      }
+
+      // Variables for engagement tracking
+      let interactionCount = 0;
+      let engagementTime = 0;
+
+      // Increase engagement time every second and update the progress bar
+      setInterval(() => {
+        engagementTime++;
+        updateEngagementBar();
+      }, 1000);
+
+      // Track user interactions
+      document.getElementById("fun-facts").onclick = () => {
+        interactionCount++;
+        updateEngagementBar();
+      };
+      
+      document.querySelectorAll(".social-link").forEach(link => {
+        link.onmouseover = () => {
+          interactionCount++;
+          updateEngagementBar();
+        };
+      });
+
+      // Function to update the progress bar and calculate engagement level
+      function updateEngagementBar() {
+        const maxEngagement = 10; // Set a threshold for max engagement
+        const engagementScore = Math.min((engagementTime + interactionCount) / maxEngagement, 1) * 100;
+        document.getElementById("engagement-bar").style.width = `${engagementScore}%`;
+
+        // Display engagement level based on engagement score
+        if (engagementScore >= 100) {
+          showEngagementLevel("Highly Engaged");
+        } else if (engagementScore >= 50) {
+          showEngagementLevel("Moderately Engaged");
+        } else {
+          showEngagementLevel("Low Engagement");
+        }
+      }
+
+      // Display and animate the engagement level text
+      function showEngagementLevel(level) {
+        const resultElement = document.getElementById("engagement-result");
+        resultElement.textContent = `Engagement Level: ${level}`;
+        resultElement.style.opacity = 1; // Make the text visible
+      }
+
+      // Display greeting on load
+      window.onload = function () {
+        displayGreeting();
+      };
+    </script>
   </body>
+  <script defer>
+    window.addEventListener("load", () => {
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+  
+      // Set canvas to full window size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+  
+      const particlesArray = [];
+      const particleCount = 100;
+  
+      // Particle class
+      class Particle {
+        constructor(x, y, size, speedX, speedY) {
+          this.x = x;
+          this.y = y;
+          this.size = size;
+          this.speedX = speedX;
+          this.speedY = speedY;
+        }
+  
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          // Reverse direction if particle hits canvas edge
+          if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+          if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        }
+  
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = document.body.classList.contains("dark-theme")
+            ? "rgba(255, 255, 255, 0.8)"  // Brighter particles for dark theme
+            : "rgba(0, 0, 0, 0.6)";       // Darker particles for light theme
+          ctx.fill();
+        }
+      }
+  
+      // Initialize particles
+      function initParticles() {
+        particlesArray.length = 0; // Clear array
+        for (let i = 0; i < particleCount; i++) {
+          const size = Math.random() * 2 + 1;
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const speedX = (Math.random() * 1 - 0.5) * 0.5;
+          const speedY = (Math.random() * 1 - 0.5) * 0.5;
+          particlesArray.push(new Particle(x, y, size, speedX, speedY));
+        }
+      }
+  
+      // Animate particles
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particlesArray.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+  
+      initParticles();
+      animateParticles();
+    });
+  </script>
+  
 </html>
