@@ -1,271 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Shrey Modi's Portfolio" />
+    <meta name="description" content="Shrey Modi — engineer and ML researcher. CS @ IIT Bombay, MS @ UChicago. Working on post-training and continual learning." />
+    <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
     <title>Shrey Modi</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    <style>
-      /* Inline CSS for light and dark themes */
-      body {
-        background-color: #ffffff;
-        color: #000000;
-        transition: background-color 0.5s ease, color 0.5s ease;
-      }
-      .dark-theme {
-        background-color: #1a1a1a;
-        color: #f0f0f0;
-      }
-      #particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        z-index: -1;
-      }
-      .dark-theme #particles {
-        filter: brightness(1.5);
-      }
-      #banner, #footer {
-        text-align: center;
-        padding: 20px;
-      }
-    </style>
   </head>
+  <body>
+    <div class="wrap">
+      <header class="site">
+        <h1><a href="index.html">Shrey Modi</a></h1>
+        <p class="tagline">Engineer &amp; ML researcher · post-training and continual learning</p>
+      </header>
 
-  <body class="dark-theme">
-    <canvas id="particles"></canvas>
+      <nav class="top">
+        <a href="#writing">Writing</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+      </nav>
 
-    <header id="banner">
-      <h1><a href="index.html">Shrey Modi</a></h1>
-      <button id="theme-toggle" onclick="toggleTheme()">🌗 Light Mode</button>
-      <p class="tagline" id="tagline">Engineer, ML Researcher, Fitness Enthusiast</p>
-      <p id="greeting-message" class="greeting"></p>
-    </header>
-
-    <main id="content">
       <section id="about">
-        <h2>Hey, I'm Shrey!</h2>
-        <img src="images/DSC_0024.jpeg" alt="Shrey Modi's Photo" class="profile-photo" />
-        <p>
-          I graduated with a degree in Computer Science from IIT Bombay. I am currently pursuing a Master’s in Computer Science at the University of Chicago. When it comes to startups, I’m all in—especially the early-stage ones. I am currently looking to join a tech-startup! My obsession with them kicked off during my time interning at a young startup and a VC firm, where I got a taste of the chaotic excitement of building something from scratch.
-          I have a strong background in ML <a href="research.html">research</a> with accepted papers at ICLR and NeurIPS. I love to keep up to date with the latest ML research and funding rounds in Silicon Valley!<br><br>
-          Beyond tech, I’m a bit of a fitness and music buff. I’m all about long-distance runs, lifting weights (gotta stay strong for all that startup hustle), and rocking out to some good old rock and rap. If you’re looking to talk shop, startups, or need a running partner, I'm your person!
+        <div class="intro">
+          <img class="photo" src="images/DSC_0024.jpeg" alt="Shrey Modi" />
+          <div>
+            <p>
+              Hi, I'm Shrey. I studied Computer Science at IIT Bombay and I'm finishing a
+              master's in Computer Science at the University of Chicago. These days I work on
+              post-training and continual learning for language models.
+            </p>
+            <p class="muted">
+              I have a background in ML research with papers at ICLR and NeurIPS, and I like
+              building things at the early, messy stage of a company. Outside of work it's
+              long runs, lifting, and a lot of rock and rap.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="writing">
+        <h2>Writing</h2>
+        <div class="item">
+          <h3><a href="continual-learning-is-a-system.html">How I think about continual learning: a two-agent system</a></h3>
+          <p>Why continual learning is better seen as a closed-loop system with autoresearch inside it, rather than a single learning algorithm.</p>
+        </div>
+      </section>
+
+      <section id="research">
+        <h2>Research</h2>
+        <div class="item">
+          <h3><a href="https://openreview.net/pdf?id=uz7d2N2zul" target="_blank" rel="noopener">Bayesian Coreset Optimization for Personalized Federated Learning</a></h3>
+          <p class="meta">ICLR 2024</p>
+          <p>Optimizing federated learning through Bayesian coresets.</p>
+        </div>
+        <div class="item">
+          <h3><a href="https://arxiv.org/pdf/2409.19461" target="_blank" rel="noopener">Accelerating Malware Classification: A Vision Transformer Solution</a></h3>
+          <p class="meta">ML for Systems, NeurIPS 2024</p>
+          <p>Speeding up malware classification with a Vision Transformer model.</p>
+        </div>
+        <div class="item">
+          <h3><a href="https://arxiv.org/pdf/2302.00284" target="_blank" rel="noopener">Selective Uncertainty Propagation in Offline RL</a></h3>
+          <p class="meta">Preprint</p>
+          <p>A selective uncertainty propagation mechanism to improve efficiency in offline reinforcement learning.</p>
+        </div>
+        <p class="muted" style="font-size:15px;margin-top:6px;">
+          More on <a href="https://scholar.google.com/citations?user=JdcpFSMAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
         </p>
       </section>
 
-      <!-- Explore More Links Section -->
-      <section id="explore-more">
-        <h2>Explore More</h2>
-        <ul>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="work.html">Experience</a></li>
-          <li><a href="research.html">Research</a></li>
-        </ul>
-      </section>
-
-      <!-- Socials Section -->
-      <section id="socials">
-        <h2>Connect with Me</h2>
-        <ul>
-          <li><a href="https://github.com/shreymodi13" class="social-link" onmouseover="hoverSocial('GitHub')" onmouseout="resetHover()">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/shrey-modi-b059941bb/" class="social-link" onmouseover="hoverSocial('LinkedIn')" onmouseout="resetHover()">LinkedIn</a></li>
-        </ul>
-        <p id="hover-message" class="hover-message"></p>
-      </section>
-
-      <!-- Fun Facts Section -->
-      <section id="fun-facts">
-        <h2>More About Me</h2>
-        <button onclick="showRandomFact()">Show Me a Fun Fact!</button>
-        <p id="random-fact"></p>
-      </section>
-
-      <!-- Engagement Prediction Section -->
-      <section id="engagement-prediction">
-        <h2>Your Engagement Level</h2>
-        <div id="engagement-bar-container">
-          <div id="engagement-bar"></div>
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="item">
+          <h3>Nexus Venture Partners</h3>
+          <p class="meta">VC Intern · Bay Area, California</p>
+          <p>Built automation tools for startup sourcing and ran AI market research.</p>
         </div>
-        <p id="engagement-result">Calculating...</p>
+        <div class="item">
+          <h3>Barclays</h3>
+          <p class="meta">Quantitative Developer Intern · Noida, India</p>
+          <p>Built a CSV editor to automate reliability-testing workflows.</p>
+        </div>
+        <div class="item">
+          <h3>babblebots.ai</h3>
+          <p class="meta">SDE Intern · Mumbai, India</p>
+          <p>Worked on voice authentication systems and backend, deployed on Google Cloud.</p>
+        </div>
+        <div class="item">
+          <h3>Mizuho Bank</h3>
+          <p class="meta">AI-ML Intern · Mumbai, India</p>
+          <p>Built an OCR-based discrepancy checker for trade-document validation.</p>
+        </div>
       </section>
-    </main>
 
-    <footer id="footer">
-      <p>&copy; 2023 Shrey Modi</p>
-    </footer>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="item">
+          <h3>Detecting Attacks from System Audit Logs</h3>
+          <p>Graph Neural Networks over system audit logs to flag potential security threats.</p>
+        </div>
+        <div class="item">
+          <h3>Video Summarization with Locality-Sensitive Hashing</h3>
+          <p>Efficient video summarization by clustering frames with LSH.</p>
+        </div>
+        <div class="item">
+          <h3>Generative Pre-training from Pixels</h3>
+          <p>A sequence transformer with a BERT encoder and GPT-2-style decoder for autoregressive pixel prediction.</p>
+        </div>
+        <div class="item">
+          <h3>Multilingual Speech Recognizer</h3>
+          <p>State-tied triphone HMMs for Wolof and Marathi using Kaldi and SoX.</p>
+        </div>
+        <div class="item">
+          <h3>P2P File Sharing System</h3>
+          <p>A peer-to-peer file-sharing network over TCP sockets, using BFS for search.</p>
+        </div>
+      </section>
 
-    <script defer>
-      // Toggle theme function
-      function toggleTheme() {
-        document.body.classList.toggle("dark-theme");
-        const themeButton = document.getElementById("theme-toggle");
-        themeButton.textContent = document.body.classList.contains("dark-theme") ? "🌗 Light Mode" : "🌗 Dark Mode";
-      }
-
-      // Greeting based on time and mood
-      function displayGreeting() {
-        const hours = new Date().getHours();
-        let greeting;
-        if (hours < 12) {
-          greeting = "Good Morning! Ready to kickstart the day with some ML?";
-        } else if (hours < 18) {
-          greeting = "Good Afternoon! Mid-day break? Check out some projects!";
-        } else {
-          greeting = "Good Evening! Relaxing or diving into code tonight?";
-        }
-        document.getElementById("greeting-message").textContent = greeting;
-      }
-
-      // Fun social hover effect
-      function hoverSocial(platform) {
-        const hoverMessage = platform === "GitHub"
-          ? "Check out my latest code!"
-          : "Connect with me on LinkedIn!";
-        document.getElementById("hover-message").textContent = hoverMessage;
-      }
-
-      function resetHover() {
-        document.getElementById("hover-message").textContent = "";
-      }
-
-      // Fun facts generator
-      function showRandomFact() {
-        const facts = [
-          "📖 Always keeping up with the latest ML research and tech innovations.",
-          "💪 Running, lifting, and fitness are big parts of my routine.",
-          "🎶 Rock and rap fan through and through."
-        ];
-        document.getElementById("random-fact").textContent =
-          facts[Math.floor(Math.random() * facts.length)];
-      }
-
-      // Variables for engagement tracking
-      let interactionCount = 0;
-      let engagementTime = 0;
-
-      // Increase engagement time every second and update the progress bar
-      setInterval(() => {
-        engagementTime++;
-        updateEngagementBar();
-      }, 1000);
-
-      // Track user interactions
-      document.getElementById("fun-facts").onclick = () => {
-        interactionCount++;
-        updateEngagementBar();
-      };
-      
-      document.querySelectorAll(".social-link").forEach(link => {
-        link.onmouseover = () => {
-          interactionCount++;
-          updateEngagementBar();
-        };
-      });
-
-      // Function to update the progress bar and calculate engagement level
-      function updateEngagementBar() {
-        const maxEngagement = 10; // Set a threshold for max engagement
-        const engagementScore = Math.min((engagementTime + interactionCount) / maxEngagement, 1) * 100;
-        document.getElementById("engagement-bar").style.width = `${engagementScore}%`;
-
-        // Display engagement level based on engagement score
-        if (engagementScore >= 100) {
-          showEngagementLevel("Highly Engaged");
-        } else if (engagementScore >= 50) {
-          showEngagementLevel("Moderately Engaged");
-        } else {
-          showEngagementLevel("Low Engagement");
-        }
-      }
-
-      // Display and animate the engagement level text
-      function showEngagementLevel(level) {
-        const resultElement = document.getElementById("engagement-result");
-        resultElement.textContent = `Engagement Level: ${level}`;
-        resultElement.style.opacity = 1; // Make the text visible
-      }
-
-      // Display greeting on load
-      window.onload = function () {
-        displayGreeting();
-      };
-    </script>
+      <footer class="links">
+        <a href="https://github.com/shreymodi13" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/shreymodi13/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=JdcpFSMAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <span class="copy">© Shrey Modi</span>
+      </footer>
+    </div>
   </body>
-  <script defer>
-    window.addEventListener("load", () => {
-      const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
-  
-      // Set canvas to full window size
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-  
-      const particlesArray = [];
-      const particleCount = 100;
-  
-      // Particle class
-      class Particle {
-        constructor(x, y, size, speedX, speedY) {
-          this.x = x;
-          this.y = y;
-          this.size = size;
-          this.speedX = speedX;
-          this.speedY = speedY;
-        }
-  
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          // Reverse direction if particle hits canvas edge
-          if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-          if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-        }
-  
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = document.body.classList.contains("dark-theme")
-            ? "rgba(255, 255, 255, 0.8)"  // Brighter particles for dark theme
-            : "rgba(0, 0, 0, 0.6)";       // Darker particles for light theme
-          ctx.fill();
-        }
-      }
-  
-      // Initialize particles
-      function initParticles() {
-        particlesArray.length = 0; // Clear array
-        for (let i = 0; i < particleCount; i++) {
-          const size = Math.random() * 2 + 1;
-          const x = Math.random() * canvas.width;
-          const y = Math.random() * canvas.height;
-          const speedX = (Math.random() * 1 - 0.5) * 0.5;
-          const speedY = (Math.random() * 1 - 0.5) * 0.5;
-          particlesArray.push(new Particle(x, y, size, speedX, speedY));
-        }
-      }
-  
-      // Animate particles
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particlesArray.forEach(particle => {
-          particle.update();
-          particle.draw();
-        });
-        requestAnimationFrame(animateParticles);
-      }
-  
-      initParticles();
-      animateParticles();
-    });
-  </script>
-  
 </html>

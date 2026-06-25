@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How I think about continual learning: a closed-loop, two-agent system with autoresearch at its center." />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <title>How I think about continual learning | Shrey Modi</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <article class="post">
+        <a class="back" href="index.html">← Back</a>
+
+        <h1>How I think about continual learning: a two-agent system</h1>
+        <p class="byline">Shrey Modi · Vision</p>
+
+        <p>
+          I think the thing that keeps a model improving in production isn't a single learning
+          rule. It's a <strong>system</strong>. Because different data demands different recipes,
+          I've come to see continual learning as a closed loop with two agents inside it: a light
+          agent that decides <em>what's worth learning from</em>, and an
+          <strong>autoresearch</strong> agent that figures out <em>how to learn it</em>. This post
+          is how I see it.
+        </p>
+
+        <h2>Why I frame it as a system</h2>
+        <p>
+          The data a model needs to learn from in production is heterogeneous and changes over
+          time: a batch of new tool-use traces, a shift in user behavior, a rare failure mode, a
+          fresh domain. In my experience the recipe that absorbs one of those cleanly won't be the
+          right one for the next. That's the core reason I don't reach for a single algorithm:
+          there isn't one rule that fits every slice of data.
+        </p>
+        <p>
+          So instead of betting on a fixed learning rule, the idea is to build a system that, for
+          each new slice of data, <em>finds</em> the right recipe. I frame continual learning as a
+          closed loop with <strong>autoresearch</strong> at its center.
+        </p>
+
+        <figure>
+          <div class="flow">
+            <span class="step">Production traces</span>
+            <span class="arrow">→</span>
+            <span class="step">Decision agent</span>
+            <span class="arrow">→</span>
+            <span class="step accent">Autoresearch</span>
+            <span class="arrow">→</span>
+            <span class="step">Deployment evals</span>
+            <span class="arrow">→</span>
+            <span class="step">Deploy</span>
+            <span class="loop">↳ the deployed model serves users, produces new traces, and the loop repeats</span>
+          </div>
+          <figcaption>The closed loop. Autoresearch is the heavy, leveraged stage in the middle.</figcaption>
+        </figure>
+
+        <p>
+          A deployed model produces <strong>production traces</strong>. A lightweight agent decides
+          whether a given trace is worth learning from and, if so, triggers
+          <strong>autoresearch</strong>, which runs a series of educated experiments and trains a
+          candidate checkpoint. <strong>Deployment evals</strong> then judge whether that checkpoint
+          is genuinely better than what's in production, and only then is it deployed. The freshly
+          deployed model produces new traces, and the loop continues, so the system improves with
+          every interaction.
+        </p>
+
+        <h2>Two agents: a cheap gate and a budgeted search</h2>
+        <p>
+          The work splits across two agents on purpose, because deciding to learn and actually
+          learning have very different cost profiles.
+        </p>
+        <p>
+          The <strong>first agent is a light, fast decision-maker</strong>. It watches incoming
+          production traces and decides whether a batch is worth learning from. Because it gates the
+          expensive step, it stays cheap and quick, and it needs <em>no</em> context of previous
+          experiments. If it says yes, it hands off to the second stage, where the real budget is
+          spent.
+        </p>
+        <p>
+          The second stage is <strong>autoresearch</strong>: a heavier, budgeted search for the
+          right training recipe. Since different data demands different recipes, this agent
+          autonomously runs experiments, recovers from training collapses, and decides which
+          checkpoint is finally worth deploying. That search, run over and over against live
+          production data, is what makes the model continually learn.
+        </p>
+
+        <h2>Why I focus on the autoresearch agent</h2>
+        <p>
+          Of the two agents, autoresearch is where I put most of the energy, and it's a deliberate
+          bet. It's the hardest and most leveraged piece of the loop: the part that has to reason
+          about data, choose a recipe, run real training, survive things going wrong, and judge the
+          result honestly.
+        </p>
+        <p>
+          My view is that if the autoresearch agent gets good, the rest of the system gets easier. A
+          strong autoresearch agent makes the decision agent's job simpler: it can afford to pass
+          through more candidate batches, because the search downstream is reliable enough to sort
+          out what's worth keeping. It makes the deployment gate more trustworthy, because the
+          checkpoints arriving at it were chosen by a process that already vetted them. So I start
+          where the leverage is highest and let improvements there flow outward to the rest of the
+          loop.
+        </p>
+
+        <h2>What autoresearch searches over</h2>
+        <p>
+          If autoresearch is the engine, what are its controls? Training a model that sits on the
+          Pareto frontier of the accuracy-versus-cost curve comes down to two decisions:
+          <strong>what data goes into training</strong> and <strong>which recipe is used</strong>.
+          Everything else (provisioning compute, wiring the trainer, logging, checkpointing,
+          scoring) is plumbing the system should hide. The agent proposes a hypothesis, changes the
+          data or the recipe, runs the experiment, reads the score behind an honest test/validation
+          firewall, keeps the win, and discards the regression. The more capable that search
+          becomes, the more of continual learning it quietly takes care of.
+        </p>
+
+        <p class="muted" style="margin-top:32px;">
+          <a href="index.html">← Back to home</a>
+        </p>
+      </article>
+    </div>
+  </body>
+</html>
