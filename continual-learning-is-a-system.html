@@ -125,7 +125,7 @@
 
         <figure>
           <div class="diagram">
-            <svg viewBox="0 0 720 160" style="min-width:520px" role="img" aria-label="Two agents: a light decision agent gates a heavier autoresearch agent.">
+            <svg viewBox="0 0 772 160" style="min-width:560px" role="img" aria-label="Two agents: a light decision agent gates a heavier autoresearch agent.">
               <defs>
                 <marker id="twoArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
                   <path d="M1 1.5 L8.5 5 L1 8.5" fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
@@ -139,11 +139,11 @@
               <line x1="292" y1="80" x2="425" y2="80" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.4" marker-end="url(#twoArrow)" />
               <text x="359" y="72" text-anchor="middle" font-size="11" fill="currentColor" fill-opacity="0.55">yes, learn from this</text>
 
-              <rect x="428" y="30" width="284" height="100" rx="12" fill="rgba(38,87,214,0.07)" stroke="#2657d6" stroke-width="1.8" />
-              <text x="570" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="#2657d6">Autoresearch agent</text>
-              <text x="570" y="84" text-anchor="middle" font-size="11" fill="#2657d6" fill-opacity="0.78">budgeted recipe search</text>
-              <text x="570" y="100" text-anchor="middle" font-size="11" fill="#2657d6" fill-opacity="0.78">runs experiments · recovers from collapse</text>
-              <text x="570" y="116" text-anchor="middle" font-size="11" fill="#2657d6" fill-opacity="0.78">picks the checkpoint to deploy</text>
+              <rect x="428" y="30" width="336" height="100" rx="12" fill="rgba(38,87,214,0.07)" stroke="#2657d6" stroke-width="1.8" />
+              <text x="596" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="#2657d6">Autoresearch agent</text>
+              <text x="596" y="84" text-anchor="middle" font-size="11" fill="#2657d6" fill-opacity="0.78">budgeted recipe search</text>
+              <text x="596" y="100" text-anchor="middle" font-size="11" fill="#2657d6" fill-opacity="0.78">runs experiments · recovers from collapse</text>
+              <text x="596" y="116" text-anchor="middle" font-size="11" fill="#2657d6" fill-opacity="0.78">picks the checkpoint to deploy</text>
             </svg>
           </div>
           <figcaption>A light, history-free gatekeeper triggers a heavier, budgeted search.</figcaption>
@@ -234,15 +234,6 @@
           changes the data or the recipe, runs the experiment, reads the score behind an honest
           test/validation firewall, keeps the win, and discards the regression. The more capable
           that search becomes, the more of continual learning it quietly takes care of.
-        </p>
-
-        <h2>Where this leaves me</h2>
-        <p>
-          What I'm building toward is this two-agent loop: a cheap decider in front, a capable
-          autoresearch agent behind it, and a deployment gate that keeps the whole thing honest. If
-          you've been waiting for the one continual-learning algorithm to arrive, I think you'll be
-          waiting a long time. The thing that actually works is less glamorous and far more
-          powerful: a system that does the research for you, every time the data changes.
         </p>
 
         <p class="muted" style="margin-top:32px;">
