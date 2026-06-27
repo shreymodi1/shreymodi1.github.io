@@ -162,3 +162,17 @@ article.post strong { font-weight: 650; }
 .flow .loop { width: 100%; text-align: center; color: var(--muted); font-size: 13px; margin-top: 4px; }
 figure { margin: 22px 0; }
 figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; text-align: center; }
+
+/* post header chips */
+.post .chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.post .chip { background: rgba(38,87,214,0.08); color: var(--accent); padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+.post .dot { color: var(--muted); }
+
+/* tldr / take callout */
+.tldr { border-left: 3px solid var(--accent); background: rgba(38,87,214,0.05); padding: 16px 18px; border-radius: 0 8px 8px 0; margin: 24px 0 34px; }
+.tldr .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin: 0 0 8px; }
+.tldr p { margin: 0; font-size: 15.5px; }
+
+/* svg diagram frame */
+.diagram { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 18px; margin: 22px 0 6px; }
+.diagram svg { color: #1b1b1a; width: 100%; height: auto; display: block; }
